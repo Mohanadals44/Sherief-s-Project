@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0b0d10;
+  --color-surface: #13171c;
+  --color-surface-2: #1a2029;
+  --color-border: #232a33;
+  --color-border-strong: #2f3842;
+  --color-text: #e5e7eb;
+  --color-text-dim: #9ca3af;
+  --color-text-mute: #6b7280;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #3b82f6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+}
+
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
+
+.prose-report {
+  max-width: 72ch;
+}
+.prose-report h1 {
+  @apply text-3xl font-semibold mt-8 mb-4;
+}
+.prose-report h2 {
+  @apply text-2xl font-semibold mt-8 mb-3 border-b border-[var(--color-border)] pb-2;
+}
+.prose-report h3 {
+  @apply text-xl font-semibold mt-6 mb-2;
+}
+.prose-report p {
+  @apply my-3 leading-relaxed text-[var(--color-text)];
+}
+.prose-report ul {
+  @apply list-disc pl-6 my-3 space-y-1;
+}
+.prose-report ol {
+  @apply list-decimal pl-6 my-3 space-y-1;
+}
+.prose-report a {
+  @apply text-[var(--color-accent)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-accent-hover)];
+}
+.prose-report code {
+  @apply bg-[var(--color-surface-2)] px-1.5 py-0.5 rounded text-[0.9em] font-mono;
+}
+.prose-report pre {
+  @apply bg-[var(--color-surface-2)] p-4 rounded-lg overflow-x-auto my-4;
+}
+.prose-report blockquote {
+  @apply border-l-2 border-[var(--color-accent)] pl-4 my-4 text-[var(--color-text-dim)] italic;
+}
+.prose-report hr {
+  @apply border-[var(--color-border)] my-6;
+}
+.prose-report strong {
+  @apply text-white font-semibold;
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #0b0d10;
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+}
+.btn-ghost {
+  @apply text-[var(--color-text)] hover:bg-[var(--color-surface-2)];
+}
+.btn-secondary {
+  @apply bg-[var(--color-surface-2)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)];
+}
+
+.input {
+  @apply w-full px-3 py-2 rounded-md bg-[var(--color-surface-2)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-mute)] focus:outline-none focus:border-[var(--color-accent)];
+}
+
+.card {
+  @apply rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-5;
+}
